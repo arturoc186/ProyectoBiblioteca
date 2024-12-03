@@ -1,0 +1,21 @@
+public class Clase3 {
+    private boolean disponible;
+
+    // Función para registrar préstamos
+    public void registrarPrestamo() {
+        if (disponible) {
+            disponible = false;
+        } else {
+            System.out.println("El libro ya está prestado.");
+        }
+    }
+
+    // Función para registrar devoluciones
+    public void registrarDevolucion() {
+        if (!disponible) {
+            disponible = true;
+        } else {
+            System.out.println("El libro ya está disponible.");
+        }
+    }
+}
