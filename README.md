@@ -30,4 +30,4 @@ Cuando estés listo para integrar los cambios en la rama principal, abre un Pull
 Revisar y Fusionar (Merge):
 Los colaboradores pueden revisar los PRs y, si todo está en orden, fusionarlos con la rama principal.
 Resolución de Conflictos:
-Si hay conflictos al fusionar, GitHub te ayudará a resolverlos antes de completar el merge.
+Si hay conflictos al fusionar, GitHub te ayudará a resolverlos antes de completar el merge........
