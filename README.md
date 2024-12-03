@@ -1,5 +1,5 @@
 # ProyectoBiblioteca
-Poryecto de Java para la Biblioteca.
+Proyecto de Java para la Biblioteca.
 
 Nuestro programa consta de las siguientes clases:
 1. Inventario de Libros.Arturo
