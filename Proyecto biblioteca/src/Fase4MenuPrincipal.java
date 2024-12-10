@@ -1,4 +1,4 @@
-public class Fase4MenuPrincipal {//6 warnings pero funciona
+public class Fase4MenuPrincipal {
     // Arrays para almacenar los libros y su disponibilidad
     private static String[] titulos = new String[10];
     private static String[] autores = new String[10];
@@ -44,36 +44,37 @@ public class Fase4MenuPrincipal {//6 warnings pero funciona
         }
     }
 
-    public static void registrarPrestamo(int tituloLibro) {
-        if (tituloLibro >= 0 && tituloLibro < disponibilidad.length) {
-            if (disponibilidad[tituloLibro]) {
-                disponibilidad[tituloLibro] = false; // Cambia el estado a "prestado"
-                estados[tituloLibro] = "Prestado";
-                System.out.println("El libro en el título " + tituloLibro + " ha sido prestado.");
+    // Método estático para registrar un préstamo
+    public static void registrarPrestamo(int indiceLibro) {
+        if (indiceLibro >= 0 && indiceLibro < disponibilidad.length) {
+            if (disponibilidad[indiceLibro]) {
+                disponibilidad[indiceLibro] = false; // Cambia el estado a "prestado"
+                estados[indiceLibro] = "Prestado";
+                System.out.println("El libro en el índice " + indiceLibro + " ha sido prestado.");
             } else {
-                System.out.println("El libro en el título " + tituloLibro + " ya está prestado.");
+                System.out.println("El libro en el índice " + indiceLibro + " ya está prestado.");
             }
         } else {
-            System.out.println("Título de libro inválido.");
+            System.out.println("Índice de libro inválido.");
         }
     }
 
-
-    public static void registrarDevolucion(int tituloLibro) {
-        if (tituloLibro >= 0 && tituloLibro < disponibilidad.length) {
-            if (!disponibilidad[tituloLibro]) {
-                disponibilidad[tituloLibro] = true; // Cambia el estado a "disponible"
-                estados[tituloLibro] = "Disponible";
-                System.out.println("El libro en el título " + tituloLibro + " ha sido devuelto y está disponible.");
+    // Método estático para registrar una devolución
+    public static void registrarDevolucion(int indiceLibro) {
+        if (indiceLibro >= 0 && indiceLibro < disponibilidad.length) {
+            if (!disponibilidad[indiceLibro]) {
+                disponibilidad[indiceLibro] = true; // Cambia el estado a "disponible"
+                estados[indiceLibro] = "Disponible";
+                System.out.println("El libro en el índice " + indiceLibro + " ha sido devuelto y está disponible.");
             } else {
-                System.out.println("El libro en el título " + tituloLibro + " ya está disponible.");
+                System.out.println("El libro en el índice " + indiceLibro + " ya está disponible.");
             }
         } else {
-            System.out.println("Título de libro inválido.");
+            System.out.println("Índice de libro inválido.");
         }
     }
 
-
+    // Método estático para buscar un libro por título
     public static void buscarPorTitulo(String tituloBuscado) {
         boolean encontrado = false;
         for (int i = 0; i < cantidadLibros; i++) {
@@ -89,11 +90,11 @@ public class Fase4MenuPrincipal {//6 warnings pero funciona
         }
     }
 
-
+    // Método estático para buscar libros por autor
     public static void buscarPorAutor(String autorBuscado) {
         boolean encontrado = false;
         for (int i = 0; i < cantidadLibros; i++) {
-            if (autores[i].equalsIgnoreCase(autorBuscado)) {
+            if (autores[i].equalsIgnoreCase(autorBuscado)) {  // Comparar de manera insensible a mayúsculas/minúsculas
                 System.out.println("Libro encontrado:");
                 System.out.println("Índice: " + i + ", Título: " + titulos[i] + ", Autor: " + autores[i] + ", Estado: " + estados[i]);
                 encontrado = true;
@@ -104,7 +105,7 @@ public class Fase4MenuPrincipal {//6 warnings pero funciona
         }
     }
 
-    // Método estático para ejecutar las opciones del menú
+    
     public static boolean ejecutarOpcion(int opcion) {
         switch (opcion) {
             case 1:
@@ -122,7 +123,7 @@ public class Fase4MenuPrincipal {//6 warnings pero funciona
             case 3:
                 System.out.print("Introduce el título del libro que deseas buscar: ");
                 titulo = ConsoleReader.readString();
-                buscarPorTitulo(titulo);
+                buscarPorTitulo(titulo);  
                 break;
 
             case 4:
@@ -151,7 +152,7 @@ public class Fase4MenuPrincipal {//6 warnings pero funciona
                 System.out.println("Opción no válida. Intenta de nuevo.");
                 break;
         }
-        return true; // Seguir ejecutando menu
+        return true;
     }
 
 
