@@ -2,13 +2,13 @@ package com.iescamp.funciones;
 
 public class Fase2 {
     // Atributos estáticos
-    public static String[] titulos;
+    public static String[] indice;
     public static String[] autores;
     public static boolean[] disponibilidad;
 
     // Método para inicializar los datos
     public static void inicializarDatos(String[] t, String[] a, boolean[] d) {
-        titulos = t;
+        indice = t;
         autores = a;
         disponibilidad = d;
     }
@@ -16,10 +16,10 @@ public class Fase2 {
     // Método para buscar por título
     public static void buscarPorTitulo(String titulo) {
         System.out.println("Buscando libro con título: " + titulo);
-        for (int i = 0; i < titulos.length; i++) {
-            if (titulos[i].equalsIgnoreCase(titulo)) {
+        for (int i = 0; i < indice.length; i++) {
+            if (indice[i].equalsIgnoreCase(titulo)) {
                 System.out.println("Libro encontrado:");
-                System.out.println("Título: " + titulos[i]);
+                System.out.println("Título: " + indice[i]);
                 System.out.println("Autor: " + autores[i]);
                 System.out.println("Disponibilidad: " + (disponibilidad[i] ? "Disponible" : "Prestado"));
                 return;
@@ -38,7 +38,7 @@ public class Fase2 {
                     System.out.println("Libros encontrados:");
                     encontrado = true;
                 }
-                System.out.println("Título: " + titulos[i] + " - Disponibilidad: " + (disponibilidad[i] ? "Disponible" : "Prestado"));
+                System.out.println("Título: " + indice[i] + " - Disponibilidad: " + (disponibilidad[i] ? "Disponible" : "Prestado"));
             }
         }
         if (!encontrado) {
