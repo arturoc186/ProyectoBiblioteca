@@ -44,33 +44,32 @@ public class Fase4MenuPrincipal {//6 warnings pero funciona
         }
     }
 
-    // Método estático para registrar un préstamo
-    public static void registrarPrestamo(int indiceLibro) {
-        if (indiceLibro >= 0 && indiceLibro < disponibilidad.length) {
-            if (disponibilidad[indiceLibro]) {
-                disponibilidad[indiceLibro] = false; // Cambia el estado a "prestado"
-                estados[indiceLibro] = "Prestado";
-                System.out.println("El libro en el índice " + indiceLibro + " ha sido prestado.");
+    public static void registrarPrestamo(int tituloLibro) {
+        if (tituloLibro >= 0 && tituloLibro < disponibilidad.length) {
+            if (disponibilidad[tituloLibro]) {
+                disponibilidad[tituloLibro] = false; // Cambia el estado a "prestado"
+                estados[tituloLibro] = "Prestado";
+                System.out.println("El libro en el título " + tituloLibro + " ha sido prestado.");
             } else {
-                System.out.println("El libro en el índice " + indiceLibro + " ya está prestado.");
+                System.out.println("El libro en el título " + tituloLibro + " ya está prestado.");
             }
         } else {
-            System.out.println("Índice de libro inválido.");
+            System.out.println("Título de libro inválido.");
         }
     }
 
 
-    public static void registrarDevolucion(int indiceLibro) {
-        if (indiceLibro >= 0 && indiceLibro < disponibilidad.length) {
-            if (!disponibilidad[indiceLibro]) {
-                disponibilidad[indiceLibro] = true; // Cambia el estado a "disponible"
-                estados[indiceLibro] = "Disponible";
-                System.out.println("El libro en el índice " + indiceLibro + " ha sido devuelto y está disponible.");
+    public static void registrarDevolucion(int tituloLibro) {
+        if (tituloLibro >= 0 && tituloLibro < disponibilidad.length) {
+            if (!disponibilidad[tituloLibro]) {
+                disponibilidad[tituloLibro] = true; // Cambia el estado a "disponible"
+                estados[tituloLibro] = "Disponible";
+                System.out.println("El libro en el título " + tituloLibro + " ha sido devuelto y está disponible.");
             } else {
-                System.out.println("El libro en el índice " + indiceLibro + " ya está disponible.");
+                System.out.println("El libro en el título " + tituloLibro + " ya está disponible.");
             }
         } else {
-            System.out.println("Índice de libro inválido.");
+            System.out.println("Título de libro inválido.");
         }
     }
 
