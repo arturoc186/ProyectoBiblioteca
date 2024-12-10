@@ -1,15 +1,6 @@
 public class PrestamosYDevoluciones {
-    private boolean[] disponibilidad; // Array para almacenar la disponibilidad de los libros
+    private boolean[] disponibilidad; 
 
-    public PrestamosYDevoluciones(int numLibros) {
-        disponibilidad = new boolean[numLibros];
-        // Por defecto, todos los libros están disponibles
-        for (int i = 0; i < numLibros; i++) {
-            disponibilidad[i] = true;
-        }
-    }
-
-    // Función para registrar un préstamo
     public void registrarPrestamo(int indiceLibro) {
         if (indiceLibro >= 0 && indiceLibro < disponibilidad.length) {
             if (disponibilidad[indiceLibro]) {
@@ -23,7 +14,6 @@ public class PrestamosYDevoluciones {
         }
     }
 
-    // Función para registrar una devolución
     public void registrarDevolucion(int indiceLibro) {
         if (indiceLibro >= 0 && indiceLibro < disponibilidad.length) {
             if (!disponibilidad[indiceLibro]) {
