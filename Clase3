@@ -1,21 +1,39 @@
 public class Clase3 {
-    private boolean disponible;
+    private boolean[] disponibilidad; // Array para almacenar la disponibilidad de los libros
 
-    // Función para registrar préstamos
-    public void registrarPrestamo() {
-        if (disponible) {
-            disponible = false;
-        } else {
-            System.out.println("El libro ya está prestado.");
+    public Clase3(int numLibros) {
+        disponibilidad = new boolean[numLibros];
+        // Por defecto, todos los libros están disponibles
+        for (int i = 0; i < numLibros; i++) {
+            disponibilidad[i] = true;
         }
     }
 
-    // Función para registrar devoluciones
-    public void registrarDevolucion() {
-        if (!disponible) {
-            disponible = true;
+    // Función para registrar un préstamo
+    public void registrarPrestamo(int indiceLibro) {
+        if (indiceLibro >= 0 && indiceLibro < disponibilidad.length) {
+            if (disponibilidad[indiceLibro]) {
+                disponibilidad[indiceLibro] = false; // Cambia el estado a "prestado"
+                System.out.println("El libro en el índice " + indiceLibro + " ha sido prestado.");
+            } else {
+                System.out.println("El libro en el índice " + indiceLibro + " ya está prestado.");
+            }
         } else {
-            System.out.println("El libro ya está disponible.");
+            System.out.println("Índice de libro inválido.");
+        }
+    }
+
+    // Función para registrar una devolución
+    public void registrarDevolucion(int indiceLibro) {
+        if (indiceLibro >= 0 && indiceLibro < disponibilidad.length) {
+            if (!disponibilidad[indiceLibro]) {
+                disponibilidad[indiceLibro] = true; // Cambia el estado a "disponible"
+                System.out.println("El libro en el índice " + indiceLibro + " ha sido devuelto y está disponible.");
+            } else {
+                System.out.println("El libro en el índice " + indiceLibro + " ya está disponible.");
+            }
+        } else {
+            System.out.println("Índice de libro inválido.");
         }
     }
 }
