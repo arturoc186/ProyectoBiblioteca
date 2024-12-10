@@ -1,48 +1,48 @@
 package com.iescamp.funciones;
 
 public class Fase2 {
+    // Atributos estáticos
+    public static String[] titulos;
+    public static String[] autores;
+    public static boolean[] disponibilidad;
 
-    // Arrays paralelos
-    private String[] titulos;
-    private String[] autores;
-    private boolean[] disponibilidad;
-    
-    
-    // Función para buscar un libro por su título
-    public void buscarPorTitulo(String tituloBuscado) {
-        boolean encontrado = false;
-
-        for (int i = 0; i < titulos.length; i++) {
-            if (titulos[i].toLowerCase().contains(tituloBuscado.toLowerCase())) {
-                // Si el título se encuentra, mostramos la información del libro
-                System.out.println("Título: " + titulos[i]);
-                System.out.println("Autor: " + autores[i]);
-                System.out.println("Disponibilidad: " + (disponibilidad[i] ? "Disponible" : "Prestado"));
-                System.out.println();
-                encontrado = true;
-            }
-        }
-
-        if (!encontrado) {
-            System.out.println("No se encontraron libros con el título \"" + tituloBuscado + "\".");
-        }
+    // Método para inicializar los datos
+    public static void inicializarDatos(String[] t, String[] a, boolean[] d) {
+        titulos = t;
+        autores = a;
+        disponibilidad = d;
     }
 
-    // Método para buscar libros por autor
-    public void buscarPorAutor(String autorBuscado) {
-        boolean encontrado = false;
-        for (int i = 0; i < autores.length; i++) {
-            if (autores[i].toLowerCase().contains(autorBuscado.toLowerCase())) {
+    // Método para buscar por título
+    public static void buscarPorTitulo(String titulo) {
+        System.out.println("Buscando libro con título: " + titulo);
+        for (int i = 0; i < titulos.length; i++) {
+            if (titulos[i].equalsIgnoreCase(titulo)) {
+                System.out.println("Libro encontrado:");
                 System.out.println("Título: " + titulos[i]);
                 System.out.println("Autor: " + autores[i]);
                 System.out.println("Disponibilidad: " + (disponibilidad[i] ? "Disponible" : "Prestado"));
-                System.out.println();
-                encontrado = true;
+                return;
             }
         }
+        System.out.println("Libro no encontrado.");
+    }
 
+    // Método para buscar por autor
+    public static void buscarPorAutor(String autor) {
+        System.out.println("Buscando libros del autor: " + autor);
+        boolean encontrado = false;
+        for (int i = 0; i < autores.length; i++) {
+            if (autores[i].equalsIgnoreCase(autor)) {
+                if (!encontrado) {
+                    System.out.println("Libros encontrados:");
+                    encontrado = true;
+                }
+                System.out.println("Título: " + titulos[i] + " - Disponibilidad: " + (disponibilidad[i] ? "Disponible" : "Prestado"));
+            }
+        }
         if (!encontrado) {
-            System.out.println("No se encontraron libros del autor \"" + autorBuscado + "\".");
+            System.out.println("No se encontraron libros para el autor: " + autor);
         }
     }
 }
