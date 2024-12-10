@@ -1,10 +1,10 @@
 public class PrestamosYDevoluciones {
 
-    public static boolean esDisponible(int indiceLibro) {
+    public static boolean esDisponible(int tituloLibro) {
         return disponibilidad[tituloLibro];
     }
 
-    public static void cambiarDisponibilidad(int indiceLibro, boolean estado) {
+    public static void cambiarDisponibilidad(int tituloLibro, boolean estado) {
         disponibilidad[tituloLibro] = estado;
         estados[tituloLibro] = estado ? "Disponible" : "Prestado";
     }
